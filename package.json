@@ -1,0 +1,52 @@
+{
+  "name": "supreme_garbanzo",
+  "version": "1.0.0",
+  "description": "##[CHANGE THIS]## boilerplate that can be used for simple projects utilizing gulp",
+  "main": "index.js",
+  "scripts": {
+    "prebuild:css": "node-sass --include-path scss src/scss/main.scss app/css/styles.css",
+    "build:css": "postcss --use autoprefixer < app/css/styles.css | cssnano > app/css/styles.min.css",
+    "watch:css": "watch 'npm run build:css' src/scss/",
+    "test": "mocha src/test/; exit 0",
+    "lint": "eslint src/js/*.js; exit 0",
+    "watch:js": "watch 'npm run test && npm run lint' src/js/",
+    "transpile": "babel src/js -d app/js --presets es2015",
+    "browserify": "",
+    "uglify": "uglifyjs app/js/app.js > app/js/script.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LS8/supreme-garbanzo.git"
+  },
+  "keywords": [
+    "webdev",
+    "web",
+    "dev",
+    "js",
+    "html",
+    "css",
+    "gulp"
+  ],
+  "author": "LS8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LS8/supreme-garbanzo/issues"
+  },
+  "homepage": "https://github.com/LS8/supreme-garbanzo#readme",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "babel-cli": "latest",
+    "babel-preset-es2015": "latest",
+    "chai": "latest",
+    "cssnano": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-react": "latest",
+    "mocha": "latest",
+    "node-sass": "latest",
+    "uglify-js": "latest",
+    "watch": "latest"
+  }
+}

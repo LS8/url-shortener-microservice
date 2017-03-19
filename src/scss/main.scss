@@ -1,0 +1,11 @@
+$text-color: grey;
+$background-color : pink;
+
+body {
+  color: $text-color;
+  background: $background-color;
+  ul {
+    display: none;
+  }
+  display: flex;
+}
