@@ -9,6 +9,7 @@
     "watch:css": "watch 'npm run build:css' src/scss/",
     "test": "mocha src/test/; exit 0",
     "lint": "eslint src/js/*.js; exit 0",
+    "lint:watch": "watch 'npm run lint' src/js/",
     "watch:js": "watch 'npm run test && npm run lint' src/js/",
     "test:watch": "watch 'npm run test' src/test/",
     "transpile": "babel src/js -d app/js --presets es2015",

@@ -9,10 +9,9 @@ const app = express();
 app.get('*', (req, res) => {
   const url = req.params['0'].slice(1);
   const validUrl = verifyUrl(url);
-  if (validUrl) {
-    // shorten the url
+  if (!validUrl) {
+    res.send('invalid url');
   }
-  res.send(url);
 });
 
 app.listen(8080);
