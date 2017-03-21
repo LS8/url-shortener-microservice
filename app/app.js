@@ -2,7 +2,7 @@ const express = require('express');
 
 const config = require('./config.js');
 
-const dbAdress = config.db.host + ':27017/' + config.db.name;
+const dbAdress = process.env.MONGOLAB_URI;
 
 const db = require('monk')(dbAdress);
 
