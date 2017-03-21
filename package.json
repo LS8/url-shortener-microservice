@@ -1,8 +1,8 @@
 {
-  "name": "supreme_garbanzo",
+  "name": "Url-Shortener-LS8",
   "version": "1.0.0",
-  "description": "##[CHANGE THIS]## boilerplate that can be used for simple projects utilizing gulp",
-  "main": "index.js",
+  "description": "Url shortener microservice",
+  "main": "app/app.js",
   "scripts": {
     "prebuild:css": "node-sass --include-path scss src/scss/main.scss app/css/styles.css",
     "build:css": "postcss --use autoprefixer < app/css/styles.css | cssnano > app/css/styles.min.css",
@@ -14,7 +14,7 @@
     "test:watch": "watch 'npm run test' src/test/",
     "transpile": "babel src/js -d app/js --presets es2015",
     "browserify": "",
-    "uglify": "uglifyjs app/js/app.js > app/js/script.min.js"
+    "uglify": "uglifyjs src/js/app.js > app/app.min.js"
   },
   "repository": {
     "type": "git",
