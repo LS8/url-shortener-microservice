@@ -10,6 +10,8 @@ const urlHelper = require('./url.js');
 
 const hash = require('./hash.js');
 
+const parseDoc = require('./res-obj.js').parseDoc;
+
 const legitUrl = urlHelper.legitUrl;
 const urls = db.get('urls');
 const app = express();
@@ -26,7 +28,7 @@ app.get('*', (req, res) => {
     urls.findOne({ longUrl: url }).then((doc) => {
       // if url is already in the db return it
       if (doc) {
-        res.send(doc);
+        res.send(parseDoc(doc));
       } else {
         // shorten the url and add it to the db
         counter += 1;
@@ -35,11 +37,18 @@ app.get('*', (req, res) => {
           shortUrl: encode(counter),
         };
         urls.insert(urlObj);
+        res.send(parseDoc(urlObj));
       }
       res.end();
-    });
+    }).catch(() => res.send('Request rejected'));
   } else {
-
+    urls.findOne({ shortUrl: url }).then((doc) => {
+      if (doc) {
+        res.send(parseDoc(doc));
+      } else {
+        res.send('No url match');
+      }
+    }).catch(() => res.send('Request rejected'));
   }
 });
 
