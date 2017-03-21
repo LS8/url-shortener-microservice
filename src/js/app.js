@@ -17,7 +17,6 @@ const urls = db.get('urls');
 const app = express();
 // encodes a number(id) to base-36, which can be used as short url
 const encode = hash.encode;
-const decode = hash.decode;
 let counter = 0;
 
 
@@ -44,7 +43,8 @@ app.get('*', (req, res) => {
   } else {
     urls.findOne({ shortUrl: url }).then((doc) => {
       if (doc) {
-        res.send(parseDoc(doc));
+        const longUrl = parseDoc(doc).original_url;
+        res.redirect(longUrl);
       } else {
         res.send('No url match');
       }

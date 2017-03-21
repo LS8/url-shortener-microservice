@@ -1,4 +1,4 @@
-const alphabet = '1234567890abcdefghijklmnopqrstuvwxyz';
+const alphabet = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const base = alphabet.length;
 
 function encode(numberToEncode) {

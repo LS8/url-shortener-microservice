@@ -1,6 +1,7 @@
 const host = require('./config.js').webhost;
+
 function parseDoc(doc) {
-  var obj = {
+  const obj = {
     original_url: doc.longUrl,
     short_url: host + doc.shortUrl,
   };
@@ -8,5 +9,5 @@ function parseDoc(doc) {
 }
 module.exports = {
   parseDoc,
-}
+};
 
