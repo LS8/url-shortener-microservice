@@ -4,6 +4,7 @@
   "description": "Url shortener microservice",
   "main": "app/app.js",
   "scripts": {
+    "start": "node app/app.js",
     "prebuild:css": "node-sass --include-path scss src/scss/main.scss app/css/styles.css",
     "build:css": "postcss --use autoprefixer < app/css/styles.css | cssnano > app/css/styles.min.css",
     "watch:css": "watch 'npm run build:css' src/scss/",
