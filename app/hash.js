@@ -18,7 +18,7 @@ function decode(stringToDecode) {
   while (str) {
     const index = alphabet.indexOf(str[0]);
     const power = str.length - 1;
-    decoded += index * (base ** power);
+    decoded += index * Math.pow(base, power);
     str = str.slice(1);
   }
   return decoded;
